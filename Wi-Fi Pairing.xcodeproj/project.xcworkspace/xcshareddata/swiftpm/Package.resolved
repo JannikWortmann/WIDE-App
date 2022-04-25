@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CodeScanner",
+        "repositoryURL": "https://github.com/twostraws/CodeScanner",
+        "state": {
+          "branch": null,
+          "revision": "c27a66149b7483fe42e2ec6aad61d5c3fffe522d",
+          "version": "2.1.1"
+        }
+      },
+      {
+        "package": "SFSymbolsPicker",
+        "repositoryURL": "https://github.com/alessiorubicini/SFSymbolsPicker",
+        "state": {
+          "branch": null,
+          "revision": "0ec27c0d3e4b3cc2d02fc9b6c841222be1913d34",
+          "version": "1.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
