@@ -9,10 +9,13 @@ import Foundation
 import SwiftUI
 
 class apicalls: NSObject, URLSessionTaskDelegate {
+    let host = "wide.janakj.net"
+    let token = "abcdef"
+    
     func getDevices(completion: @escaping ([Device]) -> ()) {
-        guard let url = URL(string: "https://wide.janakj.net/devices") else { return }
+        guard let url = URL(string: "https://\(host)/devices") else { return }
         var request = URLRequest(url: url)
-        request.setValue("Bearer abcdef", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil).dataTask(with: request) { data, _, _ in
             let devices = try? JSONDecoder().decode([Device].self, from: data!)
@@ -27,9 +30,9 @@ class apicalls: NSObject, URLSessionTaskDelegate {
     }
     
     func postdevice(username:String, password: String, broadcastid: String, devicetype: String, description: String, manufacturer: String, completion: @escaping (Bool) -> ()) {
-        guard let url = URL(string: "https://wide.janakj.net/devices") else { return }
+        guard let url = URL(string: "https://\(host)/devices") else { return }
         var request = URLRequest(url: url)
-        request.setValue("Bearer abcdef", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         
@@ -59,9 +62,9 @@ class apicalls: NSObject, URLSessionTaskDelegate {
     }
     
     func deletedevice(deviceid: Int, completion: @escaping (Bool) -> ()) {
-        guard let url = URL(string: "https://wide.janakj.net/devices/\(deviceid)") else { return }
+        guard let url = URL(string: "https://\(host)/devices/\(deviceid)") else { return }
         var request = URLRequest(url: url)
-        request.setValue("Bearer abcdef", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "DELETE"
         
