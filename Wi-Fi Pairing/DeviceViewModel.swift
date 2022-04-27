@@ -10,7 +10,7 @@ import SwiftUI
 
 class apicalls: NSObject, URLSessionTaskDelegate {
     func getDevices(completion: @escaping ([Device]) -> ()) {
-        guard let url = URL(string: "https://34.138.54.227/devices") else { return }
+        guard let url = URL(string: "https://wide.janakj.net/devices") else { return }
         var request = URLRequest(url: url)
         request.setValue("Bearer abcdef", forHTTPHeaderField: "Authorization")
         
@@ -27,7 +27,7 @@ class apicalls: NSObject, URLSessionTaskDelegate {
     }
     
     func postdevice(username:String, password: String, broadcastid: String, devicetype: String, description: String, manufacturer: String, completion: @escaping (Bool) -> ()) {
-        guard let url = URL(string: "https://34.138.54.227/devices") else { return }
+        guard let url = URL(string: "https://wide.janakj.net/devices") else { return }
         var request = URLRequest(url: url)
         request.setValue("Bearer abcdef", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -59,7 +59,7 @@ class apicalls: NSObject, URLSessionTaskDelegate {
     }
     
     func deletedevice(deviceid: Int, completion: @escaping (Bool) -> ()) {
-        guard let url = URL(string: "https://34.138.54.227/devices/\(deviceid)") else { return }
+        guard let url = URL(string: "https://wide.janakj.net/devices/\(deviceid)") else { return }
         var request = URLRequest(url: url)
         request.setValue("Bearer abcdef", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
