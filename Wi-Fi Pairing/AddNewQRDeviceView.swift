@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import SFSymbolsPicker
 
 struct AddNewQRDeviceView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -94,6 +93,11 @@ extension View {
 class CredentialsLoader {
     static var shared: CredentialsLoader = CredentialsLoader()
     
+    var deviceCredentials: [Credentials] = []
+    
+    
+    
+    
     var credentials: [String: String] = [String:String]()
     
     var loginid: String {
@@ -132,6 +136,25 @@ class CredentialsLoader {
         }
     }
     
+    func loadJSONFromString(str: String) -> [Credentials] {
+        guard let data = str.data(using: .utf8) else { return [] }
+        
+        guard let arr = try? JSONDecoder().decode([Credentials].self, from: data) else { return [] }
+        
+        return arr
+    }
+    
+    func loadJSONFromURL(url: URL) -> [Credentials] {
+        guard let str = try? String(contentsOf: url) else { return [] }
+        
+        return loadJSONFromString(str: str)
+    }
+    
+    
+    
+    
+    
+    
     func loadCredentialsFromString(str: String) -> Bool {
         let res = str.components(separatedBy: ",").reduce(into: [String: String]()) {
                 let comps = $1.components(separatedBy: ":")
@@ -149,4 +172,14 @@ class CredentialsLoader {
         
         return loadCredentialsFromString(str: str)
     }
+}
+
+
+class Credentials: Codable {
+    let loginid: String
+    let loginpw: String
+    let broadcastid: String
+    let devicetype: String
+    let description: String
+    let manufacturer: String
 }

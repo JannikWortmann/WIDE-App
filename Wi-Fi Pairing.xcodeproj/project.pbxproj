@@ -17,7 +17,6 @@
 		53E5C9E327C814A80013DCAB /* DeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E5C9E227C814A80013DCAB /* DeviceDetails.swift */; };
 		53E5C9E527C814CD0013DCAB /* AddDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E5C9E427C814CD0013DCAB /* AddDeviceView.swift */; };
 		53E5C9E727C81CD10013DCAB /* AddNewQRDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E5C9E627C81CD10013DCAB /* AddNewQRDeviceView.swift */; };
-		53E5C9EA27C8246B0013DCAB /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 53E5C9E927C8246B0013DCAB /* SFSymbolsPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +39,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E5C9E127C814530013DCAB /* CodeScanner in Frameworks */,
-				53E5C9EA27C8246B0013DCAB /* SFSymbolsPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +104,6 @@
 			name = "Wi-Fi Pairing";
 			packageProductDependencies = (
 				53E5C9E027C814530013DCAB /* CodeScanner */,
-				53E5C9E927C8246B0013DCAB /* SFSymbolsPicker */,
 			);
 			productName = "Wi-Fi Pairing";
 			productReference = 53E5C9C927C6E0760013DCAB /* Wi-Fi Pairing.app */;
@@ -300,6 +297,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wi-Fi Pairing/Preview Content\"";
@@ -319,8 +317,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jannikwortmann.Wi-Fi-Pairing";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jannikwortmann.Wi-Fi-Pairing1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -332,6 +331,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wi-Fi Pairing/Preview Content\"";
@@ -351,8 +351,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jannikwortmann.Wi-Fi-Pairing";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jannikwortmann.Wi-Fi-Pairing1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -406,11 +407,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53E5C9DF27C814530013DCAB /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
-		};
-		53E5C9E927C8246B0013DCAB /* SFSymbolsPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 53E5C9E827C8246B0013DCAB /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */;
-			productName = SFSymbolsPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

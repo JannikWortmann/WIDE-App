@@ -14,21 +14,35 @@ struct Wi_Fi_PairingApp: App {
         WindowGroup {
             ContentView()
                 .onOpenURL { (url) in
-                    let showDialog = CredentialsLoader.shared.loadCredentialsFrom(URL: url)
+                    let arr = CredentialsLoader.shared.loadJSONFromURL(url: url)
                     
-                    if !showDialog {
-                        //add new device
-                        //reload list
-                        apicalls().postdevice(username: CredentialsLoader.shared.loginid, password: CredentialsLoader.shared.loginpw, broadcastid: CredentialsLoader.shared.broadcastid, devicetype: CredentialsLoader.shared.devicetype, description: CredentialsLoader.shared.description, manufacturer: CredentialsLoader.shared.manufacturername) { result in
-                            print(result)
+                    arr.forEach { creds in
+                        apicalls().postdevice(username: creds.loginid, password: creds.loginpw, broadcastid: creds.broadcastid, devicetype: creds.devicetype, description: creds.description, manufacturer: creds.manufacturer) { res in
+                            print(res)
                             DispatchQueue.main.async {
                                 AddQRDeviceView.shared.reloadDeviceList.toggle()
                             }
                         }
                     }
-                    else {
-                        AddQRDeviceView.shared.pushAddDeviceQRView = true
-                    }
+                    
+                    
+                    
+                    
+//                    let showDialog = CredentialsLoader.shared.loadCredentialsFrom(URL: url)
+//
+//                    if !showDialog {
+//                        //add new device
+//                        //reload list
+//                        apicalls().postdevice(username: CredentialsLoader.shared.loginid, password: CredentialsLoader.shared.loginpw, broadcastid: CredentialsLoader.shared.broadcastid, devicetype: CredentialsLoader.shared.devicetype, description: CredentialsLoader.shared.description, manufacturer: CredentialsLoader.shared.manufacturername) { result in
+//                            print(result)
+//                            DispatchQueue.main.async {
+//                                AddQRDeviceView.shared.reloadDeviceList.toggle()
+//                            }
+//                        }
+//                    }
+//                    else {
+//                        AddQRDeviceView.shared.pushAddDeviceQRView = true
+//                    }
                 }
                 .environmentObject(AddQRDeviceView.shared)
         }
